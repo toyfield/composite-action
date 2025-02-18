@@ -16,7 +16,7 @@ runs:
         token: ${{ inputs.token }}
     - uses: pnpm/action-setup@v4
       with:
-        version: 9
+        package_json_file: pkg-a/package.json
     - run: 
         echo $(pwd)
       shell: bash
@@ -26,3 +26,8 @@ runs:
         registry-url: https://npm.pkg.github.com/
         node-version: 22.x
         cache: pnpm
+        cache-dependency-path: pkg-a/pnpm-lock.yaml
+    - run:
+        pnpm install
+      shell: bash
+      working-directory: pkg-a
