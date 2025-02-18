@@ -17,6 +17,10 @@ runs:
     - uses: pnpm/action-setup@v4
       with:
         version: 9
+    - run: 
+        echo $(pwd)
+      shell: bash
+      working-directory: pkg-a
     - uses: actions/setup-node@v4
       with:
         registry-url: https://npm.pkg.github.com/
